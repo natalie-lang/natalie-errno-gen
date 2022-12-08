@@ -1,0 +1,25 @@
+name: Generate
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  linux:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v1
+      - name: install requirements
+        run: sudo apt-get install -y -q ruby moreutils
+      - name: generate on Linux
+        run: ruby generate.rb
+  macos:
+    runs-on: macos-12
+    steps:
+      - uses: actions/checkout@v1
+      - name: install requirements
+        run: brew install ruby moreutils
+      - name: generate on macOS
+        run: ruby generate.rb

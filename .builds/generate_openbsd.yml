@@ -1,0 +1,13 @@
+image: openbsd/7.0
+packages:
+  - ruby-3.1.2
+sources:
+  - https://git.sr.ht/~tim/natalie-errno-gen
+environment:
+  LC_ALL: "C.UTF-8"
+tasks:
+  - setup: |
+      doas ln -sf /usr/local/bin/ruby31 /usr/local/bin/ruby
+  - generate: |
+      cd natalie-errno-gen
+      ruby generate.rb
