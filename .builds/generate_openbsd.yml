@@ -1,6 +1,7 @@
 image: openbsd/7.0
 packages:
   - ruby-3.1.2
+  - moreutils
 sources:
   - https://git.sr.ht/~tim/natalie-errno-gen
 environment:
